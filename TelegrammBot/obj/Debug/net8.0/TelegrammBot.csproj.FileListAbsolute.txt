@@ -16,3 +16,4 @@ C:\Users\User\source\repos\TelegrammBot\TelegrammBot\obj\Debug\net8.0\refint\Tel
 C:\Users\User\source\repos\TelegrammBot\TelegrammBot\obj\Debug\net8.0\TelegrammBot.pdb
 C:\Users\User\source\repos\TelegrammBot\TelegrammBot\obj\Debug\net8.0\TelegrammBot.genruntimeconfig.cache
 C:\Users\User\source\repos\TelegrammBot\TelegrammBot\obj\Debug\net8.0\ref\TelegrammBot.dll
+C:\Users\User\source\repos\TelegrammBot\TelegrammBot\obj\Debug\net8.0\TelegrammBot.sourcelink.json
