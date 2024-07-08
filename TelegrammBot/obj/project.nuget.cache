@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YRCxo5Nb+jIaC4jwdfEzF5JwFKJInJbIjhT6o3pT3VCg3CblQww1rWLrXcOnTNrvxa2xRIgWAqDn7foj6VPduQ==",
+  "dgSpecHash": "iO69jcks8d+WRW6uyRe8yU7hnfN/FFiv4RQk+SYq6ZEM5L2R/vyMiRZU5QCpk+1CjADIKS7o5PqOOzQTDmfXxg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\301к8\\Source\\Repos\\TelegramBot\\TelegrammBot\\TelegrammBot.csproj",
+  "projectFilePath": "C:\\Users\\301к8\\source\\repos\\TelegramBot\\TelegrammBot\\TelegrammBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\301к8\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\301к8\\.nuget\\packages\\telegram.bot\\20.0.0-alpha.1\\telegram.bot.20.0.0-alpha.1.nupkg.sha512"
