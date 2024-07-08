@@ -2,17 +2,22 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="realistion\**" />
+    <EmbeddedResource Remove="realistion\**" />
+    <None Remove="realistion\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Telegram.Bot" Version="20.0.0-alpha.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="realistion\" />
     <Folder Include="photo\" />
   </ItemGroup>
 

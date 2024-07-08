@@ -25,10 +25,15 @@ namespace TelegrammBot
         }
         async static Task Updata(ITelegramBotClient Botclient, Update update, CancellationToken token)
         {
+
+            
             var Messag = update.Message;
-            string Photo = "";
-            if (Messag.Text != null) 
+            string Photo = get_way();
+            string buffer = "";
+            
+            if (Messag != null) 
             {
+                Console.WriteLine(Messag.Chat.FirstName + $"({Messag.Chat.Id})" + ":" + Messag.Text);
                 switch (Messag.Text.ToLower()) 
                 {
                     case "/start":
@@ -53,7 +58,7 @@ namespace TelegrammBot
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "А какой жанр тебе подходит?",replyMarkup: GetButtons_movie());
                         break;
                     case "🧛‍♂️хоррор🎃":
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\хорроры\\proch.jpg";
+                        Photo += "\\хорроры\\proch.jpg";
                         
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Любишь жуть?😱 А ты смелый!😉 Вот мой список для тебя!😘");
                         Thread.Sleep(3000);
@@ -72,7 +77,8 @@ namespace TelegrammBot
                                 parseMode: ParseMode.Html);
                         }
                         Thread.Sleep(3000);
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\хорроры\\OHO.jpg";
+                        Photo = get_way();
+                        Photo += "\\хорроры\\OHO.jpg";
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
                             await Botclient.SendPhotoAsync(
@@ -91,7 +97,8 @@ namespace TelegrammBot
                                 );
                         }
                         Thread.Sleep(3000);
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\хорроры\\Promitey.jpg";
+                        Photo = get_way();
+                        Photo += "\\хорроры\\Promitey.jpg";
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
                             await Botclient.SendPhotoAsync(
@@ -109,7 +116,8 @@ namespace TelegrammBot
                         }
                         break;
                     case "🌌фантастика💫":
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\фантастика\\interstellar.jpg";
+                        Photo = get_way();
+                        Photo += "\\фантастика\\interstellar.jpg";
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Ого!😱 Любишь помечтать о бедующем и других мирах?😙🌌 Вот моя подборка!😘\n");
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -125,7 +133,8 @@ namespace TelegrammBot
                                 "🚀🌌8.6 из 10🌌🚀</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\фантастика\\Duna.jpg";
+                        Photo = get_way();
+                        Photo += "\\фантастика\\Duna.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -140,7 +149,8 @@ namespace TelegrammBot
                                 "🐫🏜8 из 10🏝🐪</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\фантастика\\Ghost_int_he_Shell.jpg";
+                        Photo = get_way();
+                        Photo += "\\фантастика\\Ghost_int_he_Shell.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -158,7 +168,8 @@ namespace TelegrammBot
                         }
                         break;
                     case "🔍детектив🕵️‍♂️":
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\детективы\\Inferno.jpg";
+                        Photo = get_way();
+                        Photo += "\\детективы\\Inferno.jpg";
 
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Ну-ка, ну-ка!🕵️‍♂️Давайте раскроем пару дел!🔍 Вот что я могу предложить!");
                         Thread.Sleep(3000);
@@ -174,7 +185,8 @@ namespace TelegrammBot
                                 "👣🔍7 из 10🔍👣</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\детективы\\Ace_Ventura_wanted_pets.jpg";
+                        Photo = get_way();
+                        Photo += "\\детективы\\Ace_Ventura_wanted_pets.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -191,7 +203,8 @@ namespace TelegrammBot
                                 "🐾🔍8 из 10🔍🐾</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\детективы\\seven.jpg";
+                        Photo = get_way();
+                        Photo += "\\детективы\\seven.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -213,7 +226,8 @@ namespace TelegrammBot
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Стало скучно? Давай-ка подберём игры на такие темы как😁", replyMarkup:GetButtons_game());
                         break;
                     case "💀боевик🔫":
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\боевик\\Dying_Light.jpg";
+                        Photo = get_way();
+                        Photo += "\\боевик\\Dying_Light.jpg";
 
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Давай-ка постреляем!🏃‍♂️🔫");
                         Thread.Sleep(3000);
@@ -230,7 +244,8 @@ namespace TelegrammBot
                                 "💀🔨7 из 10💀🔨</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\боевик\\Call-Of-Duty-Modern-Warfare-2.jpg";
+                        Photo = get_way();
+                        Photo += "\\боевик\\Call-Of-Duty-Modern-Warfare-2.jpg";
 
 
                         Thread.Sleep(3000);
@@ -246,7 +261,8 @@ namespace TelegrammBot
                                 "🔫9 из 10🔫</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\боевик\\Overwatch.jpg";
+                        Photo = get_way();
+                        Photo += "\\боевик\\Overwatch.jpg";
 
 
                         Thread.Sleep(3000);
@@ -264,7 +280,8 @@ namespace TelegrammBot
                         }
                         break;
                     case "😵головоломки😵":
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\головоломки\\Portal-2.jpg";
+                        Photo = get_way();
+                        Photo += "\\головоломки\\Portal-2.jpg";
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Вот мой том головокружительных игр😵😁");
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -280,7 +297,8 @@ namespace TelegrammBot
                                 "🌌9 из 10🌌</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\головоломки\\Machinarium.jpg";
+                        Photo = get_way();
+                        Photo += "\\головоломки\\Machinarium.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -294,7 +312,8 @@ namespace TelegrammBot
                                 "🤖8 из 10🤖</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\головоломки\\Unravel.jpg";
+                        Photo = get_way();
+                        Photo += "\\головоломки\\Unravel.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -311,7 +330,8 @@ namespace TelegrammBot
                         }
                         break;
                     case "🏹тактика🗿":
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\тактика\\Wildermyth.jpg";
+                        Photo = get_way();
+                        Photo += "\\тактика\\Wildermyth.jpg";
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Вот мой подборка");
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -326,7 +346,8 @@ namespace TelegrammBot
                                 "🔮🧙‍♂️9 из 10🧙‍♂️🔮</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\тактика\\Gears Tactics.jpg";
+                        Photo = get_way();
+                        Photo += "\\тактика\\Gears Tactics.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -339,7 +360,8 @@ namespace TelegrammBot
                                 "🕹🗺9 из 10🗺🕹</b>",
                                 parseMode: ParseMode.Html);
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\тактика\\xcom2.jpg";
+                        Photo = get_way();
+                        Photo += "\\тактика\\xcom2.jpg";
                         Thread.Sleep(3000);
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -357,7 +379,8 @@ namespace TelegrammBot
                         break;
                     //Пул Развлечение🎉 - "🏠интересные места🗻"
                     case "🏠интересные места🗻":
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\Интересные места\\Батутный центр Невесомость.jpg";
+                        Photo = get_way();
+                        Photo += "\\Интересные места\\Батутный центр Невесомость.jpg";
                         await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Давай-ка сходим погулять!Вот интересные места:");
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
@@ -368,7 +391,8 @@ namespace TelegrammBot
                                 parseMode: ParseMode.Html);
                             await Botclient.SendVenueAsync(Messag.Chat.Id, latitude: 54.4925169, longitude: 36.2213831, title: "Батутный центр \"Невесомость\"", address: "ул. Генерала Попова, 3 (Спорткомплекс Рубин, этаж 1)");
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\Интересные места\\EXIT Квест.jpg";
+                        Photo = get_way();
+                        Photo += "\\Интересные места\\EXIT Квест.jpg";
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
                             await Botclient.SendPhotoAsync(
@@ -378,7 +402,8 @@ namespace TelegrammBot
                                 parseMode: ParseMode.Html);
                             await Botclient.SendVenueAsync(Messag.Chat.Id, latitude: 54.5153033, longitude: 36.2500973, title: "EXIT Квест:Логово", address: "ул. Кирова, 15, Калуга");
                         }
-                        Photo = "C:\\Users\\User\\source\\repos\\TelegrammBot\\TelegrammBot\\photo\\Интересные места\\vision.jpg";
+                        Photo = get_way();
+                        Photo += "\\Интересные места\\vision.jpg";
                         using (var fileStream = new FileStream(Photo, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
                             await Botclient.SendPhotoAsync(
@@ -391,10 +416,13 @@ namespace TelegrammBot
                         break;
 
                     default:
+                        await Botclient.SendTextMessageAsync(Messag.Chat.Id, "Ещё в разработке");
                         break;
                 }
+                
             }
             
+
         }
 
         
@@ -474,7 +502,11 @@ namespace TelegrammBot
         }
         static TelegramBotClient botClient()
         {
-            return new TelegramBotClient("7453668670:AAHtJ0VL0qyEMxrLSv58gi0TUbzPIkGWq8E");
+            return new TelegramBotClient("7453668670:AAE8kv670SsYRcpqNU5VnsC5j0RDPlQOGM8");
+        }
+        static string get_way() 
+        {
+            return "C:\\Users\\301к8\\Source\\Repos\\TelegramBot\\TelegrammBot\\photo";
         }
     }
 }
